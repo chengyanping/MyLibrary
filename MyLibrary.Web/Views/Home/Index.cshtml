@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+@using MyLibrary.Web.Auth
+@section header{
+    <script type="text/javascript" src="~/Scripts/jquery.lazyload.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("img.lazyloading").lazyload();
+        });
+    </script>
+}
+<div class="wrapper clearfix">
+    <!-- main -->
+    <div class="main">
+        @Html.Action("CategorySummary", "Home", null)
+    </div>
+   
+ 
+</div>
+
+@*@Html.Action("JokeImgList")*@
+<div class="wrapper section-lists">
+    <!-- list-inner -->
+    <div class="list-inner clearfix">
+        
+        @{Html.RenderAction("HotCategoryBooks", new { categoryId = 1 });}
+    </div>
+   
+</div>

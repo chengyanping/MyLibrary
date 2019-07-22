@@ -1,0 +1,111 @@
+﻿@model IEnumerable<MyLibrary.Model.Domain.T_Book>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISBN13)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookPublisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.putdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorIntro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Summary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookCatalog)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookPrim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookRecord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookCover)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pages)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISBN13)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookPublisher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.putdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorIntro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Summary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookCatalog)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookPrim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookRecord)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookCover)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pages)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookId })
+        </td>
+    </tr>
+}
+
+</table>
