@@ -16,45 +16,50 @@ namespace MyLibrary.Model.Domain
         [Column("BookId"),DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BookId { get; set; }
 
-        [Column("ISBN13",TypeName ="varchar"),MaxLength(13)]
+        [Column("ISBN13",TypeName ="nvarchar"),MaxLength(13)]
         public string ISBN13 { get; set; }
 
-        [Column("BookName", TypeName = "varchar"), MaxLength(128)]
+        [Column("BookName", TypeName = "nvarchar"), MaxLength(128)]
         public string BookName { get; set; }
 
-        [Column("BookPublisher", TypeName = "varchar"), MaxLength(13)]
+        [Column("BookPublisher", TypeName = "nvarchar"), MaxLength(13)]
         public string BookPublisher { get; set; }
-        public decimal BookPrice { get; set; }
-        public DateTime putdate { get; set; }
+        public decimal? BookPrice { get; set; }
+        public DateTime? Pubdate { get; set; }
 
+        
         [Column("CategoryId", TypeName = "Int")]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
 
-        [Column("Author", TypeName = "varchar"), MaxLength(128)]
+        [Column("Author", TypeName = "nvarchar"), MaxLength(128)]
         public string Author { get; set; }
 
-        [Column("AuthorIntro", TypeName = "varchar"), MaxLength(1024)]
+        [Column("AuthorIntro", TypeName = "nvarchar"), MaxLength(1024)]
         public string AuthorIntro { get; set; }
-        public int BookNum { get; set; }
+        public int? BookNum { get; set; }
 
-        [Column("Summary", TypeName = "varchar"), MaxLength(1024)]
+        [Column("Summary", TypeName = "nvarchar"), MaxLength(1024)]
         public string Summary { get; set; }
 
         [Column("BookCatalog", TypeName = "ntext")]
         public string BookCatalog { get; set;  } //目录
 
-        [Column("BookPrim", TypeName = "varchar"), MaxLength(32)]
+        [Column("BookPrim", TypeName = "nvarchar"), MaxLength(32)]
         public string BookPrim { get; set;  } //关键字
 
       
-        public DateTime BookRecord { get; set; } //登记时间
+        public DateTime? BookRecord { get; set; } //登记时间
 
-        [Column("BookCover", TypeName = "varchar"), MaxLength(128)]
+        [Column("BookCover", TypeName = "nvarchar"), MaxLength(128)]
         public String BookCover { get; set; }
 
         [Column("Pages", TypeName = "Int")]
-        public int Pages { get; set; } //页数
+        public int? Pages { get; set; } //页数
 
+
+        [ForeignKey("CategoryId")]
         public T_Category Category { get; set; }
+
+        public ICollection<T_BorrowedRecord> BorrowedRecords { get; set; }
     }
 }

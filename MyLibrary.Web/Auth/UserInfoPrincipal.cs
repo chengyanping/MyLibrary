@@ -15,7 +15,7 @@ namespace MyLibrary.Web.Auth
 
             User userLogic = new User();
             var user = userLogic.GetUserInfoByUserName(userName);
-            this.identity = new UserInfoIdentity(user.ID, user.UserName, user.IsAdmin);
+            this.identity = new UserInfoIdentity(user.ID, user.UserName, user.IsAdmin==null?1:0);
 
     
         }

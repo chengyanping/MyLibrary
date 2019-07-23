@@ -34,7 +34,7 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// Guid
         /// </summary>
-        [Column("Guid",TypeName ="varchar"),MaxLength(128)]
+        [Column("Guid",TypeName = "nvarchar"),MaxLength(128)]
         public string Guid
         {
             get; set;
@@ -62,6 +62,8 @@ namespace MyLibrary.Model.Domain
         {
             get;set;
         }
+
+        public T_User User { get; set; }
 
 
     }

@@ -24,6 +24,7 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 分类名称
         /// </summary>
+        [Column("Name",TypeName = "nvarchar"),MaxLength(32)]
         public string Name
         {
             get; set;
@@ -43,13 +44,14 @@ namespace MyLibrary.Model.Domain
             get; set;
         }
 
+        [Column("PinYin",TypeName = "nvarchar"),MaxLength(32)]
         public string PinYin
         {
             get;set;
         }
 
 
-
+        public ICollection<T_Book> Books { get; set; }
 
     }
 }

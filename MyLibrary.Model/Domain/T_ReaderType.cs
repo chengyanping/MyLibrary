@@ -15,12 +15,14 @@ namespace MyLibrary.Model.Domain
         [Column("ReaderTypeId"),DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ReaderTypeId { get; set; }
 
-        [Column("ReaderTypeName",TypeName ="varchar"),MaxLength(16)]
+        [Column("ReaderTypeName",TypeName = "nvarchar"),MaxLength(16)]
         public string ReaderTypeName { get; set; }
         public int CanBorrowQty { get; set; }
         public int CanBorrowDay { get; set; }
         public int CanContinueTimes { get; set; }
         public float PunishRate { get; set; }
-        public int BookTypeId { get; set; }
+        public int BookTypeId { get; set; } 
+ 
+        public ICollection<T_User> Users { get; set; }
     }
 }

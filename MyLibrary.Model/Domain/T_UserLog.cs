@@ -36,7 +36,7 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 用户名
         /// </summary>
-        [Column("UserName",TypeName ="varchar"),MaxLength(32)]
+        [Column("UserName",TypeName = "nvarchar"),MaxLength(32)]
         public string UserName
         {
             get; set;
@@ -52,12 +52,12 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 操作备注
         /// </summary>
-        [Column("Content",TypeName ="varchar"),MaxLength(1024)]
+        [Column("Content",TypeName = "nvarchar"),MaxLength(1024)]
         public string Content
         {
             get;set;
         }
        
-
+        public T_User User { get; set; }
     }
 }

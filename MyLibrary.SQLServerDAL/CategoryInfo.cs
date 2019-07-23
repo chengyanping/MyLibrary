@@ -14,6 +14,7 @@ namespace MyLibrary.SQLServerDAL
         private EFDbContext db = new EFDbContext();
         public IList<Model.ViewModel.CategorySummaryInfo> GetCategoryInfos()
         {
+            
             var data = from a in db.Categories                      
                        select new MyLibrary.Model.ViewModel.CategorySummaryInfo
                        {
@@ -22,6 +23,8 @@ namespace MyLibrary.SQLServerDAL
                              Count= 100
                        };
             return data.ToList();
+            
+            return null;
         }
 
         CategorySummaryInfo ICategoryInfo.GetCategoryInfo(int id)

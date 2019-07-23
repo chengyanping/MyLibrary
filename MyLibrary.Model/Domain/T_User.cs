@@ -21,7 +21,7 @@ namespace MyLibrary.Model.Domain
         /// 用户ID
         /// </summary>
         [Key]
-        [Column("ReaderId",TypeName ="Int")]
+        [Column("UserId",TypeName ="Int")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID
         {
@@ -30,10 +30,10 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         ///  用户名
         /// </summary>
-        [Column("ReaderTypeId")]
-        public int ReaderTypeId { get; set; }
+       
+        public int? ReaderTypeId { get; set; }
 
-        [Column("ReaderName",TypeName ="varchar"),MaxLength(32)]
+        [Column("ReaderName",TypeName = "nvarchar"),MaxLength(32)]
         public string UserName
         {
             get; set;
@@ -49,13 +49,13 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 电子邮件
         /// </summary>
-        [Column("ReaderSex",TypeName ="varchar"),MaxLength(2)]
+        [Column("ReaderSex",TypeName = "nvarchar"),MaxLength(2)]
         public string ReaderSex { get; set; }
 
-        [Column("ReaderPhone",TypeName ="varchar"),MaxLength(32)]
+        [Column("ReaderPhone",TypeName = "nvarchar"),MaxLength(32)]
         public string ReaderPhone { get; set; }
 
-        [Column("ReaderEmail",TypeName ="varchar"),MaxLength(32)]
+        [Column("ReaderEmail",TypeName = "nvarchar"),MaxLength(32)]
         public string Email
         {
             get; set;
@@ -66,7 +66,7 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 密码
         /// </summary>
-        [Column("ReaderPwd",TypeName ="varchar"),MaxLength(32)]
+        [Column("ReaderPwd",TypeName = "nvarchar"),MaxLength(32)]
         public string Password
         {
             get; set;
@@ -93,28 +93,33 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 用户头像
         /// </summary>
-        [Column("ReaderPhoto")]
+        [Column("ReaderPhoto",TypeName = "nvarchar"),MaxLength(256)]
 
         public string Photo
         {
             get; set;
         }
+
+     
+        
         /// <summary>
         /// 用户状态
         /// </summary>
-        public int State
+        public int? State
         {
-            get; set;
+            get;set;
         }
         /// <summary>
         /// 是否是管理员
         /// </summary>
         [Column("IsAdmin")]
-        public int IsAdmin
+        public int? IsAdmin
         {
             get; set;
-        }
+        }      
       
+        public T_ReaderType ReaderType { get; set; }
 
+        public ICollection<T_UserLog> Logs { get; set; }
     }
 }

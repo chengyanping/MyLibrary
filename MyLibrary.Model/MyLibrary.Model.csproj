@@ -55,8 +55,12 @@
     <Compile Include="Domain\T_BorrowedRecord.cs" />
     <Compile Include="Domain\T_Category.cs" />
     <Compile Include="Domain\T_Comment.cs" />
+    <Compile Include="Domain\T_Favorite.cs" />
+    <Compile Include="Domain\T_Fine.cs" />
     <Compile Include="Domain\T_GetPwd.cs" />
     <Compile Include="Domain\T_ReaderType.cs" />
+    <Compile Include="Domain\T_Reserved.cs" />
+    <Compile Include="Domain\T_ReturnRecord.cs" />
     <Compile Include="Domain\T_User.cs" />
     <Compile Include="Domain\T_UserLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

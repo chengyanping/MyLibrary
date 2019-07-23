@@ -12,10 +12,12 @@ namespace MyLibrary.Model.Domain
     /// 评论信息
     /// </summary>
     [Serializable]
+    [Table("T_Comment")]
     public partial class T_Comment
     {
      
-      
+       [Key]
+       [Column("CommentId",TypeName ="Int"),DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID
         {
             get;set;
@@ -23,6 +25,7 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 
         /// </summary>
+       
         public int UserId
         {
             get; set;
@@ -30,6 +33,7 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 评论内容
         /// </summary>
+        [Column("Content",TypeName = "nvarchar"),MaxLength(1024)]
         public string Content
         {
             get; set;
@@ -37,6 +41,7 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 添加时间
         /// </summary>
+        [Column("AddDate")]
         public DateTime AddDate
         {
             get; set;
@@ -44,6 +49,7 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 发表人id
         /// </summary>
+        [Column("BookId")]        
         public int BookId
         {
             get; set;
@@ -51,6 +57,7 @@ namespace MyLibrary.Model.Domain
         /// <summary>
         /// 楼层
         /// </summary>
+        [Column("Floor")]
         public int Floor
         {
             get; set;
@@ -69,7 +76,8 @@ namespace MyLibrary.Model.Domain
         {
             get;set;
         }
-   
+        public T_User User { get; set; }
+        public T_Book Book { get; set; }
 
     }
 }

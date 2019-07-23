@@ -27,7 +27,7 @@ namespace MyLibrary.Web.Controllers
         public ActionResult Index()
         {
 
-            string strUserAgent = Request.UserAgent.ToString().ToLower();
+           string strUserAgent = Request.UserAgent.ToString().ToLower();
             if (!string.IsNullOrEmpty(strUserAgent))
             {
                 if (Request.Browser.IsMobileDevice)
@@ -99,7 +99,7 @@ namespace MyLibrary.Web.Controllers
             var userinfo = userBLL.GetUserInfo(userLoginModel.UserName, Md5.GetMd5(userLoginModel.Password));
             if (userinfo != null)
             {
-                UserInfo user = new UserInfo(userinfo.ID, userinfo.UserName, userinfo.IsAdmin);
+                UserInfo user = new UserInfo(userinfo.ID, userinfo.UserName, userinfo.IsAdmin==null?0:1);
                 var userJson = JsonConvert.SerializeObject(user);
                 var ticket = new FormsAuthenticationTicket(1, userinfo.UserName, DateTime.Now, DateTime.Now.AddDays(1), true, userJson);
                 //FormsAuthentication.SetAuthCookie(userLoginModel.UserName, true);
