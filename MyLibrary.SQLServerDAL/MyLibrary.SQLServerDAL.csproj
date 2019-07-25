@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="Book.cs" />
     <Compile Include="CategoryInfo.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="EFDbContext.cs" />
     <Compile Include="GetPwd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

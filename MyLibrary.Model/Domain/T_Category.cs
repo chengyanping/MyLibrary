@@ -12,7 +12,7 @@ namespace MyLibrary.Model.Domain
     /// <summary>
     /// 分类
     /// </summary>
-    [Serializable]  
+   
     public partial class T_Category
     {
        

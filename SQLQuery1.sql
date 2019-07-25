@@ -196,18 +196,59 @@ create table T_Fine
 ALTER DATABASE MyLibraryDB
 COLLATE Chinese_PRC_CI_AS
 
+
+--添加类别
 insert into T_Category(Name,AddDate,State,PinYin) values('科幻',getDate(),1,'kehuan');
 insert into T_Category(Name,AddDate,State,PinYin) values('社科',getDate(),1,'sheke');
 insert into T_Category(Name,AddDate,State,PinYin) values('自然',getDate(),1,'ziran');
 insert into T_Category(Name,AddDate,State,PinYin) values('爱情',getDate(),1,'aiqing');
+--添加书籍信息
+insert into T_Book values('12345678','时间简史','清华出版社',45,'2016/6/1',3,'霍金','英国物理学家',12,null,null,null,'2019/6/30','/images/time.jpg','http://localhost:9812/Images/WeiXin/1_small.jpg',356)
+
+insert into T_Book values('112233445566','局外人','江苏凤凰文艺',50,'2017/6/1',2,'阿尔贝·加缪','法国声名卓著的小说家、散文家和剧作家，存在主义文学大师，“荒诞哲学”的代表人物',3,'《局外人》形象地体现了存在主义哲学关于"荒谬"的观念;由于人和世界的分离，世界对于人来说是荒诞的、毫无意义的，而人对荒诞的世界无能为力，因此不抱任何希望，对一切事物都无动于衷。',null,null,'2019/7/1','/images/juwairen.jpg','http://localhost:9812/Images/WeiXin/1_small.jpg',400)
+insert into T_Book values('987654321','活着','清华出版社',35,'2018/6/1',2,'余华','当代作家。中国作家协会第九届全国委员会委员',4,'讲诉了在大时代背景下，随着内战、三反五反，大跃进，文化大革命等社会变革，徐福贵的人生和家庭不断经受着苦难，到了最后所有亲人都先后离他而去，仅剩下年老的他和一头老牛相依为命。',null,null,'2019/6/25','/images/life.png','http://localhost:9812/Images/WeiXin/1_small.jpg',400)
+
+
+select top 12  * from T_Book where BookRecord>'2019/6/28'
 
 select * from T_Category
-
-delete from T_Book;
-insert into T_Book(ISBN13,BookName,Pages,BookRecord,BookNum,Pubdate,BookPrice,CategoryId,BookCover_Large,BookCover_Small,Author) values('skdf','西游记',0,getdate(),0,getdate(),11,1,'http://localhost:9812/Images/WeiXin/1_small.jpg','http://localhost:9812/Images/WeiXin/1_small.jpg','老舍');
-
 select * from T_Book
 
+
+--添加用户类型
+insert into T_ReaderType values('普通用户',5,30,1,10.2,2)
+
+--添加用户
+insert into T_User values(1,'lucy','女','18538003652','luo@126.com',1,'123456',GETDATE(),GETDATE(),null,1,1)
+
+select * from T_User
+
+select * from T_ReaderType
+
+
+--借阅记录
+insert into T_BorrowedRecord values(2,1,'时间简史',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(2,1,'时间简史',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(3,1,'局外人',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(6,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(6,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(9,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(9,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(13,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(13,1,'活着',GETDATE(),GETDATE(),1,1)
+
+insert into T_BorrowedRecord values(16,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(16,1,'活着',GETDATE(),GETDATE(),1,1)
+
+select * from T_BorrowedRecord where BookId=2
+
+
+
+--修改
 
 
 ---注意

@@ -11,7 +11,7 @@ namespace MyLibrary.Model.Domain
     /// <summary>
     /// 评论信息
     /// </summary>
-    [Serializable]
+ 
     [Table("T_Comment")]
     public partial class T_Comment
     {

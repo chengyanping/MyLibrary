@@ -11,7 +11,7 @@ namespace MyLibrary.Model.Domain
     /// <summary>
     /// 找回密码
     /// </summary>
-    [Serializable]
+  
     [Table("T_GetPwd")]
     public partial class T_GetPwd
     {

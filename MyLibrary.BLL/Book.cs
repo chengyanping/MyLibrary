@@ -27,9 +27,26 @@ namespace MyLibrary.BLL
             var data = bookDAL.GetLatestBooks(categoryId, topCount);
             return data;
         }
-     
 
-    
+        //根据条件查询
+        public IList<T_Book> getBooks(string where, string type)
+        {
+            var data = bookDAL.getBooks(where, type);
+            return data;
+        }
+        //根据出版日期查询最新出版的12本书
+        public IList<T_Book> getBooks()
+        {
+            return bookDAL.getBooks();
+        }
+
+        //热门书籍
+        public IList<hotBooks> getHotBooks()
+        {
+            return bookDAL.getHotBooks();
+        }
+
+
 
     }
 }

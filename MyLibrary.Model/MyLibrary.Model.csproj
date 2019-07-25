@@ -76,6 +76,7 @@
     <Compile Include="ViewModel\CategoryModel.cs" />
     <Compile Include="ViewModel\BookPostInfo.cs" />
     <Compile Include="ViewModel\BookSearchModel.cs" />
+    <Compile Include="ViewModel\hotBooks.cs" />
     <Compile Include="ViewModel\PageSearchResult.cs" />
     <Compile Include="ViewModel\UserBookSearchModel.cs" />
     <Compile Include="ViewModel\UserLogSearchModel.cs" />

@@ -11,7 +11,7 @@ namespace MyLibrary.Model.Domain
     /// <summary>
     /// 用户操作日志
     /// </summary>
-    [Serializable]
+ 
     [Table("T_UserLog")]
     public partial class T_UserLog
     {

@@ -12,7 +12,7 @@ namespace MyLibrary.Model.Domain
     /// <summary>
     /// 用户信息表
     /// </summary>
-    [Serializable]
+  
     [Table("T_User")]
     public partial class T_User
     {

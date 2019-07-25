@@ -13,6 +13,8 @@ namespace MyLibrary.IDAL
     {
 
         IList<T_Book> GetLatestBooks(int categoryId, int topCount = 10);
-
+        IList<T_Book> getBooks(string where, string type);
+        IList<T_Book> getBooks();
+        IList<hotBooks> getHotBooks();
     }
 }

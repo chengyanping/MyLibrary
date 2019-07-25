@@ -13,6 +13,7 @@ using MyLibrary.Model.Domain;
 using MyLibrary.Common;
 using MyLibrary.Web.Helpers;
 using MyLibrary.Web.Filter;
+using MyLibrary.Model.ViewModel;
 
 namespace MyLibrary.Web.Controllers
 {
@@ -41,7 +42,45 @@ namespace MyLibrary.Web.Controllers
 
             //
             SetPageSeo(SiteTitle, SiteKeyWords, SiteDescription);
-            return View();
+            //获得热门书籍
+            IList<hotBooks> list = bookBLL.getHotBooks();
+            // list[0].Book.BookCover;
+
+            ViewBag.hot = list.ToList();
+            return View(bookBLL.getBooks(null, null));
+        }
+        //根据条件进行查询
+        [HttpPost]
+        public ActionResult Index(ContentCheck contentCheck)
+        {
+            string where = contentCheck.content;
+            string type = contentCheck.type;
+            return View(bookBLL.getBooks(where, type));
+
+            //string where = content;
+            //string type = checkCondition;
+            //return View(bookBLL.getBooks(where, type));
+        }
+        [HttpPost]
+        public ActionResult Index1(ContentCheck contentCheck)
+        {
+            string where = contentCheck.content;
+            string type = contentCheck.type;
+            return View(bookBLL.getBooks(where, type));
+
+            //string where = content;
+            //string type = checkCondition;
+            //return View(bookBLL.getBooks(where, type));
+        }
+
+        public ActionResult index1()
+        {
+            //获得热门书籍
+            IList<hotBooks> list = bookBLL.getHotBooks();
+            // list[0].Book.BookCover;
+
+            ViewBag.hot = list;
+            return View(bookBLL.getBooks());
         }
 
         public ActionResult About()
