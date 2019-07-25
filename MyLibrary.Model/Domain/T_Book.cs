@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace MyLibrary.Model.Domain
 {
@@ -50,11 +51,17 @@ namespace MyLibrary.Model.Domain
       
         public DateTime? BookRecord { get; set; } //登记时间
 
-        [Column("BookCover", TypeName = "nvarchar"), MaxLength(128)]
-        public String BookCover { get; set; }
+             
+     
+        public BookCover BookCover
+        {
+            get;set;
+        }
+        
 
         [Column("Pages", TypeName = "Int")]
         public int? Pages { get; set; } //页数
+
 
 
         [ForeignKey("CategoryId")]

@@ -18,6 +18,13 @@ namespace MyLibrary.SQLServerDAL
            
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // Configure Code First to ignore PluralizingTableName convention
+            // If you keep this convention then the generated tables will have pluralized names.
+        
+         
+        }
         public DbSet<T_User> Users { get; set; }
         public DbSet<T_UserLog> UserLogs { get; set; }
 
