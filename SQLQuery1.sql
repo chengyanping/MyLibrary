@@ -203,12 +203,17 @@ insert into T_Category(Name,AddDate,State,PinYin) values('爱情',getDate(),1,'aiq
 
 select * from T_Category
 
-
-insert into T_Book(ISBN13,BookName,Pages,BookRecord,BookNum,Pubdate,BookPrice,CategoryId) values('skdf','西游记',0,getdate(),0,getdate(),11,1);
+delete from T_Book;
+insert into T_Book(ISBN13,BookName,Pages,BookRecord,BookNum,Pubdate,BookPrice,CategoryId,BookCover_Large,BookCover_Small,Author) values('skdf','西游记',0,getdate(),0,getdate(),11,1,'http://localhost:9812/Images/WeiXin/1_small.jpg','http://localhost:9812/Images/WeiXin/1_small.jpg','老舍');
 
 select * from T_Book
 
 
+
+---注意
+1、实体类加入virtual
+
+修改实体类  T_book
 
 
 
