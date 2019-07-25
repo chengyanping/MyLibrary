@@ -21,8 +21,8 @@ namespace MyLibrary.Model.Domain
         public int CanBorrowDay { get; set; }
         public int CanContinueTimes { get; set; }
         public float PunishRate { get; set; }
-        public int BookTypeId { get; set; } 
- 
-        public ICollection<T_User> Users { get; set; }
+        public int BookTypeId { get; set; }
+
+        public  ICollection<T_User> Users { get; set; }
     }
 }

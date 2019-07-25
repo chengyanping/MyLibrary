@@ -21,7 +21,7 @@ namespace MyLibrary.Web.Controllers
 
         public IEnumerable<T_Book> GetAllProducts()
         {
-            List<T_Book> data = bookBLL.GetCategoryBooks(1, 10).ToList();
+            List<T_Book> data = bookBLL.GetCategoryBooks(2, 10).ToList();
 
             //缩放图片
             
@@ -63,7 +63,7 @@ namespace MyLibrary.Web.Controllers
 
         public IHttpActionResult GetProduct(int id)
         {
-            IList<T_Book> contacts = bookBLL.GetCategoryBooks(1, 10);
+            IList<T_Book> contacts = bookBLL.GetCategoryBooks(2, 10);
 
 
             T_Book product = contacts.FirstOrDefault((p) => p.BookId == id);

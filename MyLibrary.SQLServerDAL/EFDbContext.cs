@@ -14,7 +14,7 @@ namespace MyLibrary.SQLServerDAL
       
         public EFDbContext():base("name=MyLibraryDB")
         {
-            Database.SetInitializer<EFDbContext>(new CreateDatabaseIfNotExists<EFDbContext>());
+            Database.SetInitializer<EFDbContext>(new DropCreateDatabaseIfModelChanges<EFDbContext>());
            
         }
 
@@ -36,9 +36,17 @@ namespace MyLibrary.SQLServerDAL
         public DbSet<T_BorrowedRecord> BorrowedRecords { get; set; }
         public DbSet<T_Comment> Comments { get; set; }
         public DbSet<T_Favorite> Favorites { get; set; }
-        public DbSet<T_Fine> Fines { get; set; }
+    
         public DbSet<T_Reserved> Reserved { get; set; }
-        public DbSet<T_ReturnRecord> ReturnRecords { get; set; }
-      
+        public DbSet<T_BookList> BookList { get; set; }
+        public DbSet<T_BookListItem> BookListItem { get; set; }
+        
+        public DbSet<T_Money> Money { get; set; }
+
+        public DbSet<T_RecommendedBook> RecommendedBook { get; set; }
+
+        public DbSet<T_RecommendedBookList> RecommendedBookList { get; set; }
+
+
     }
 }

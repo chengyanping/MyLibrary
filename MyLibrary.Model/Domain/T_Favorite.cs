@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyLibrary.Model.Domain
 {
-
+    //收藏
     public class T_Favorite
     {
         [Key]
@@ -16,17 +16,14 @@ namespace MyLibrary.Model.Domain
         public int FavoriteId { get; set; }
 
      
-        [Column("BookId")]
-        public int BookId { get; set; }
-
-        [Column("UserId")]
+      
         public int UserId { get; set; }
 
-        [Column("BookName",TypeName = "nvarchar"),MaxLength(128)]
-        public string BookName { get; set; }
+        public int BookListId { get; set; }
 
-        public T_User User { get; set; }
-        public T_Book Book { get; set; }
+
+     
+      
 
 
     }

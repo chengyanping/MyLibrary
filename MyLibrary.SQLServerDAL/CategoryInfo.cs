@@ -18,7 +18,7 @@ namespace MyLibrary.SQLServerDAL
             var data = from a in db.Categories                      
                        select new MyLibrary.Model.ViewModel.CategorySummaryInfo
                        {
-                           CategoryId = a.ID,
+                           CategoryId = a.CategoryID,
                             CategoryName = a.Name,
                              Count= 100
                        };

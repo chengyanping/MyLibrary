@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyLibrary.Model.Domain
 {
+    //存放web和微信所用的图书封面
     [ComplexType]
     public class BookCover
     {

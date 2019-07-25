@@ -64,9 +64,9 @@ namespace MyLibrary.Model.Domain
 
 
 
-        [ForeignKey("CategoryId")]
-        public T_Category Category { get; set; }
+     
+        public virtual T_Category Category { get; set; }
 
-        public ICollection<T_BorrowedRecord> BorrowedRecords { get; set; }
+        public  ICollection<T_BorrowedRecord> BorrowedRecords { get; set; }
     }
 }

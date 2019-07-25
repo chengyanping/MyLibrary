@@ -83,7 +83,7 @@ namespace MyLibrary.SQLServerDAL
             //    var da1 = from p in db.Books where p.BookId == item.Key select p;
             //    //  list.Add(da1);
             //}
-
+            /*
             var data2 = db.BorrowedRecords
                 .GroupBy(x => x.BookId)
                 .OrderByDescending(x => x.Count(m => m.BookId == x.Key))
@@ -91,6 +91,7 @@ namespace MyLibrary.SQLServerDAL
                 .Select(g => new hotBooks { num = g.Count(), Book = g.Where(x => x.BookId == g.Key).FirstOrDefault().Book });
 
             list = data2.ToList();
+            */
             return list;
 
 

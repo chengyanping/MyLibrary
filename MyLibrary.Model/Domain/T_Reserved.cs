@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyLibrary.Model.Domain
 {
+    //预定
     public class T_Reserved
     {
         [Key]       
@@ -27,7 +28,7 @@ namespace MyLibrary.Model.Domain
 
         public int IsSatisfy { get; set; }
 
-        public T_User User { get; set; }
-        public T_Book Book { get; set; }
+        public virtual T_User User { get; set; }
+        public virtual T_Book Book { get; set; }
     }
 }

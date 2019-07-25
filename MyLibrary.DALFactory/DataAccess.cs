@@ -47,5 +47,11 @@ namespace MyLibrary.DALFactory
 
 
         }
+
+        public static MyLibrary.IDAL.IBorrowedRecord CreateBorrowedRecord()
+        {
+            string className = path + ".BorrowedRecord";
+            return (MyLibrary.IDAL.IBorrowedRecord)Assembly.Load(path).CreateInstance(className);
+        }
     }
 }

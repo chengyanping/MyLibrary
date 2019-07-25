@@ -26,16 +26,23 @@ namespace MyLibrary.Model.Domain
         [Column("BookName",TypeName = "nvarchar"),MaxLength(128)]
         public string BookName { get; set; }
 
-        public DateTime? OutDate { get; set; }
+        public DateTime? OutDate { get; set; } //借出时间
 
-        public DateTime? InDate { get; set; }
+        public DateTime? InDate { get; set; }  //应该归还时间
 
-        public int? Status { get; set; } //是否已经还书
+        public DateTime? ActualInDate { get; set; } //应该归还时间
+        public int? Status { get; set; } //状态 是否已经还书
 
-        public int? IsRenewCount { get; set;  } //是否续借
+        public  decimal Fine { get; set; }  //罚款
 
-        public T_User User { get; set; }
-        public T_Book Book { get; set; }
+        public   int FineReason { get; set; }
+        public int? IsRenewCount { get; set;  } //这是第几次续借
+
+        [ForeignKey("UserId")]
+        public virtual T_User User { get; set; }
+
+      
+        public virtual T_Book Book { get; set; }
 
         
     }

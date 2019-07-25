@@ -172,6 +172,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\GlobalConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Auth\UserAuthorizeAttribute.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BookApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserCenterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filter\a.cs" />
     <Compile Include="Filter\GZipCompressAttribute.cs" />
@@ -447,6 +449,10 @@
     <Content Include="Views\Home\HotCategoryBooks.cshtml" />
     <Content Include="Views\Home\getpwd.cshtml" />
     <Content Include="Views\Home\index1.cshtml" />
+    <Content Include="Views\UserCenter\Index.cshtml" />
+    <Content Include="Views\UserCenter\BorrowList.cshtml" />
+    <Content Include="Views\UserCenter\NoReturned.cshtml" />
+    <Content Include="Views\UserCenter\Returned.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

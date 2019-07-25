@@ -17,7 +17,7 @@ namespace MyLibrary.Model.Domain
     {
        
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID
+        public int CategoryID
         {
             get;set;
         }
@@ -51,7 +51,7 @@ namespace MyLibrary.Model.Domain
         }
 
 
-        public ICollection<T_Book> Books { get; set; }
+        public  ICollection<T_Book> Books { get; set; }
 
     }
 }

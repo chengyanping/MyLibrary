@@ -116,10 +116,10 @@ namespace MyLibrary.Model.Domain
         public int? IsAdmin
         {
             get; set;
-        }      
-      
-        public T_ReaderType ReaderType { get; set; }
+        }
 
-        public ICollection<T_UserLog> Logs { get; set; }
+        public virtual T_ReaderType ReaderType { get; set; }
+
+        public  ICollection<T_UserLog> Logs { get; set; }
     }
 }

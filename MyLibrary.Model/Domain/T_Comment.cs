@@ -76,8 +76,12 @@ namespace MyLibrary.Model.Domain
         {
             get;set;
         }
-        public T_User User { get; set; }
-        public T_Book Book { get; set; }
+
+      
+        public virtual T_User User { get; set; }
+
+      
+        public virtual T_Book Book { get; set; }
 
     }
 }

@@ -192,6 +192,16 @@ create table T_Fine
 	FineCause	int,		--罚款原因
 	CLState		int,		--处理状态
 )
+--推荐书单
+create table T_RecommendedBook
+(
+	RecommendedBook int identity(1,1) primary key,
+	BookID	int references T_Book(BookId),
+	Description	varchar(1024), --推荐理由
+	AddDate		datetime,
+		
+)
+
 
 ALTER DATABASE MyLibraryDB
 COLLATE Chinese_PRC_CI_AS
@@ -219,7 +229,7 @@ select * from T_Book
 insert into T_ReaderType values('普通用户',5,30,1,10.2,2)
 
 --添加用户
-insert into T_User values(1,'lucy','女','18538003652','luo@126.com',1,'123456',GETDATE(),GETDATE(),null,1,1)
+insert into T_User values(1,'lucy','女','18538003652','luo@126.com',1,'e10adc3949ba59abbe56e057f20f883e',GETDATE(),GETDATE(),null,1,1)
 
 select * from T_User
 
@@ -227,29 +237,30 @@ select * from T_ReaderType
 
 
 --借阅记录
-insert into T_BorrowedRecord values(2,1,'时间简史',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(2,1,'时间简史',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(3,1,'局外人',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(6,1,'活着',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(6,1,'活着',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(9,1,'活着',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(9,1,'活着',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(13,1,'活着',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(13,1,'活着',GETDATE(),GETDATE(),1,1)
-
-insert into T_BorrowedRecord values(16,1,'活着',GETDATE(),GETDATE(),1,1)
-insert into T_BorrowedRecord values(16,1,'活着',GETDATE(),GETDATE(),1,1)
+insert into T_BorrowedRecord values(2,1,'时间简史',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(2,1,'时间简史',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(3,1,'局外人',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(4,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(6,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(6,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(9,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(9,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(13,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(13,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+											 
+insert into T_BorrowedRecord values(16,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
+insert into T_BorrowedRecord values(16,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,21,1,1)
 
 select * from T_BorrowedRecord where BookId=2
 
 
 
 --修改
-
+insert into T_Book values('123456','三国演义','ff','12',GETDATE(),1,'ddd','dfghdfghd','111','52','11111','1',GETDATE(),'/images/photo1.jpg','1')
+insert into T_Book values('123456','水浒传','ff','12',GETDATE(),1,'ddd','dfghdfghd','111','52','11111','1',GETDATE(),'/images/photo2.jpg','1')
 
 ---注意
 1、实体类加入virtual
@@ -259,3 +270,4 @@ select * from T_BorrowedRecord where BookId=2
 
 
 
+ 
