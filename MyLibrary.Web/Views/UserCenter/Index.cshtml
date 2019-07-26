@@ -1,0 +1,287 @@
+﻿@model IEnumerable<MyLibrary.Model.Domain.T_BorrowedRecord>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserCenterLayout.cshtml";
+}
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="~/Scripts/UserCenter/highcharts.js"></script>
+<div class="btn-floating" id="help-actions">
+    <div class="btn-bg"></div>
+    <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
+        <i class="icon fa fa-plus"></i>
+        <span class="help-text">Shortcut</span>
+    </button>
+    <div class="toggle-content">
+        <ul class="actions">
+            <li><a href="#">Website</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Issues</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <a class="card card-banner card-green-light">
+                <div class="card-body">
+                    <i class="icon fa fa-shopping-basket fa-4x"></i>
+                    <div class="content">
+                        <div class="title">未归还数量</div>
+                        <div class="value"><span class="sign"></span>@ViewBag.borrowCount.NoReturnedCount</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <a class="card card-banner card-blue-light">
+                <div class="card-body">
+                    <i class="icon fa fa-thumbs-o-up fa-4x"></i>
+                    <div class="content">
+                        <div class="title">已归还数量</div>
+                        <div class="value"><span class="sign"></span>@ViewBag.borrowCount.ReturnedCount</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <a class="card card-banner card-yellow-light">
+                <div class="card-body">
+                    <i class="icon fa fa-user-plus fa-4x"></i>
+                    <div class="content">
+                        <div class="title">总借阅数量</div>
+                        <div class="value"><span class="sign"></span>@ViewBag.borrowCount.BorrowCount</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+      
+    </div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+    <div class="card card-banner card-chart card-green no-br">
+        <div class="card-header">
+            <div class="card-title">
+                <div class="title">Top Sale Today</div>
+            </div>
+            <ul class="card-action">
+                <li>
+                    <a href="/">
+                        <i class="fa fa-refresh"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="card card-mini">
+                <div class="card-header">
+                    <div class="card-title">未归还书籍</div>
+                    <a href="/UserCenter/NoReturned" style="color:#FFBC11;font-weight:bolder;">更多</a>
+                </div>
+                <div class="card-body no-padding table-responsive ">
+                    <table class="table text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>
+                                    书名
+                                </th>
+                                <th>
+                                    借阅时间
+                                </th>
+                                <th>
+                                    预期归还时间
+                                </th>
+                               <th>
+                                    是否续借
+                                </th>
+                                 @*<th>
+                                    心仪
+                                </th>
+                                <th></th>*@
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BookName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OutDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.InDate)
+                                    </td>
+                                    <td>
+                                        @if (Html.DisplayFor(modelItem => item.IsRenewCount).ToString() != "0")
+                                        {
+                                            <span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span></span></span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span></span></span>
+                                        }
+                                    </td>
+                                    @*<td></td>*@
+                                    @*<td>
+                                        <a href="#">更多</a>
+                                    </td>*@
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="card card-tab card-mini" >
+                <div class="card-header" style="overflow-x:hidden;overflow-y:hidden;">
+                    <ul class="nav nav-tabs tab-stats">
+                        <li role="tab1" class="active">
+                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Browsers</a>
+                        </li>
+                        @*<li role="tab2">
+                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">OS</a>
+                        </li>
+                        <li role="tab2">
+                            <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">More</a>
+                        </li>*@
+                    </ul>
+                </div>
+                <div class="card-body tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @*<div class="chart ct-chart-browser ct-perfect-fourth"></div>*@
+                                <div id="container" style="width: 100%; height: 100%; margin: 0 auto"></div>
+                                @*<input type="hidden" value='@ViewBag.Percent.CategoryName' id="CategoryName" />
+                                <input type="hidden" value='@ViewBag.Percent.CategoryNum' id="CategoryNum" />
+                                <input type="hidden" value='@ViewBag.Percent.CategoryPercent' id="CategoryPercent" />*@
+                              
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab2">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="chart ct-chart-os ct-perfect-fourth"></div>
+                            </div>
+                            <div class="col-sm-4">
+                                <ul class="chart-label">
+                                    <li class="ct-label ct-series-a">言情小说</li>
+                                    <li class="ct-label ct-series-b">历史</li>
+                                    <li class="ct-label ct-series-c">现代</li>
+                                    <li class="ct-label ct-series-d">文学</li>
+                                    <li class="ct-label ct-series-e">人文社科</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@*<script type="text/javascript" src="~/Scripts/UserCenter/vendor.js"></script>
+    <script type="text/javascript" src="~/Scripts/UserCenter/app.js"></script>*@
+
+<script language="JavaScript">
+    
+    $(document).ready(function () {
+        //var CategoryPercent = $("#CategoryPercent").val();
+        //var CategoryName = $("#CategoryName").val();
+        //var CategoryPercent = $("#CategoryPercent").val();
+        // alert($("#CategoryPercent").val);
+        var str = "";
+        $.ajax({
+            type: "post",
+            url: '/UserCenter/GetBorrowPerent',
+            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            success: function (result) {               
+                for (var i = 0; i < result.length; i++) {
+                    //alert(result[i].CategoryName);
+                    //alert(result[i].CategoryPercent);
+                    str += "['" + result[i].CategoryName + "'," + result[i].CategoryPercent + "]";
+                   // alert(str);
+                }
+                $("#contents").append(s + "</tbody>");
+            },
+            error: function () { alert("eee"); }
+
+        });
+   var chart = {
+       plotBackgroundColor: null,
+       plotBorderWidth: null,
+       plotShadow: false
+   };
+   var title = {
+      text: ''
+   };
+   var tooltip = {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+   };
+   var plotOptions = {
+      pie: {
+         allowPointSelect: true,
+         cursor: 'pointer',
+         dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+            style: {
+               color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+            }
+         }
+      }
+   };
+   
+    
+               var series= [{
+               type: 'pie',
+               name: 'Browser share',
+                  
+               data: [
+                   //str,
+         ['言情小说', 45.0],
+         ['历史', 26.8],
+         ['现代', 8.5],
+         ['文学',     6.2],
+         ['人文社科', 0.7],
+        
+      ]
+   }];
+   // Radialize the colors
+   Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+               return {
+               radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+         stops: [
+            [0, color],
+            [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+         ]
+      };
+   });
+
+   var json = {};
+       json.chart = chart;
+   json.title = title;
+   json.tooltip = tooltip;
+   json.series = series;
+   json.plotOptions = plotOptions;
+   $('#container').highcharts(json);
+});
+</script>

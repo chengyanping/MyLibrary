@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MyLibrary.Model.Domain.T_BorrowedRecord>
+
+@{
+    ViewBag.Title = "Returned";
+    Layout = "~/Views/Shared/_UserCenterLayout.cshtml";
+}
+
+<h2>Returned</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Book.ISBN13)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsRenewCount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.ISBN13)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsRenewCount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BorrowedRecordId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BorrowedRecordId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BorrowedRecordId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,134 @@
+﻿@model IEnumerable<MyLibrary.Model.Domain.T_BorrowedRecord>
+
+@{
+    ViewBag.Title = "BorrowList";
+    Layout = "~/Views/Shared/_UserCenterLayout.cshtml";
+}
+
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#ReturnStatus").change(function () {
+            var a=0;
+            if($("#ReturnStatus").val()=="已归还图书")
+            {
+                a=0;
+            }
+            else
+            {
+                a=1;
+            }
+            $.ajax({
+                type: "post",
+                url: '/UserCenter/SearchBorrowList',
+                dataType: 'json',
+                data: JSON.stringify({
+                    Status: a
+                }),
+                contentType: "application/json;charset=utf-8",
+                success: function (result) {
+                    var s = "<tbody>";
+                    $("#contents tbody").remove();
+                    alert(result[0].Book.BookCover);
+                    for (var i = 0; i < result.length; i++) {
+                        var status="";
+                        if (result[i].Status != 0) {
+                            status = "<span class='badge badge-success badge-icon'><i class='fa fa-check' aria-hidden='true'></i><span></span></span>";
+                        }
+                        else {
+                            status = " <span class='badge badge-danger badge-icon'><i class='fa fa-times' aria-hidden='true'></i><span></span></span>";
+                        }
+                        var renewCount="";
+                        if (result[i].IsRenewCount == 0) {
+                            renewCount = "<span class='badge badge-danger badge-icon'><i class='fa fa-times' aria-hidden='true'></i><span></span></span>";
+                        }
+                        else {
+                            renewCount = result[i].IsRenewCount;
+                        }
+                        s += "<tr><td>" + result[i].BorrowedRecordId + "</td><td>" + result[i].BookName + "</td><td> <img src='/images/photo1.jpg' class='img-responsive'  style='max-height:50px;max-width:50px;'  /></td><td>" + result[i].OutDate + "</td><td>" + result[i].InDate + "</td><td>" + status + "</td><td>" + renewCount + "</td></tr>";
+                    }
+                    $("#contents").append(s+"</tbody>");
+                },
+                error: function () { alert("eee"); }
+
+            });
+        })
+
+    })
+</script>
+<div class="col-xs-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+
+                <div class="col-lg-6">借阅图书列表</div>
+                <div class="col-lg-6">
+                    <select class="form-control pull-right" style="width:auto;" id="ReturnStatus" onchange="">
+                        <option>未归还图书</option>
+                        <option>已归还图书</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="card-body no-padding">
+            <table class="datatable table table-striped primary" cellspacing="0" width="100%" id="contents">
+                <thead>
+                    <tr>
+                        <th>借阅编号</th>
+                        <th>图书名称</th>
+                        <th>图片</th>
+                        <th>借阅时间</th>
+                        <th>预期归还时间</th>
+                        <th>是否归还</th>
+                        <th>是否续借</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BorrowedRecordId)
+                            </td>
+                            <td>
+                               @Html.DisplayFor(modelItem => item.BookName)
+                            </td>
+                            <td>                             
+                                <img src="@Html.DisplayFor(modelItem => item.Book.BookCover)" class="img-responsive"  style="max-height:50px;max-width:50px;"  />
+                                
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OutDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.InDate)
+                            </td>
+                            <td>
+                                @if (Html.DisplayFor(modelItem => item.Status).ToString() != "0")
+                                {
+                                    <span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span></span></span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span></span></span>
+                                }
+                            </td>
+                            <td>
+                                @if (Html.DisplayFor(modelItem => item.IsRenewCount).ToString() != "0")
+                                {
+                                    @Html.DisplayFor(modelItem => item.IsRenewCount)
+                                    @*<span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span></span></span>*@
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span></span></span>
+                                }
+                            </td>                     
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div id="test"></div>
+        </div>
+    </div>
+</div>
