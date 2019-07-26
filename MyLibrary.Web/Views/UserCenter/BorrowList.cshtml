@@ -10,7 +10,7 @@
     $(function () {
         $("#ReturnStatus").change(function () {
             var a=0;
-            if($("#ReturnStatus").val()=="已归还图书")
+            if($("#ReturnStatus").val()=="未归还图书")
             {
                 a=0;
             }
@@ -29,7 +29,6 @@
                 success: function (result) {
                     var s = "<tbody>";
                     $("#contents tbody").remove();
-                    alert(result[0].Book.BookCover);
                     for (var i = 0; i < result.length; i++) {
                         var status="";
                         if (result[i].Status != 0) {
@@ -45,7 +44,7 @@
                         else {
                             renewCount = result[i].IsRenewCount;
                         }
-                        s += "<tr><td>" + result[i].BorrowedRecordId + "</td><td>" + result[i].BookName + "</td><td> <img src='/images/photo1.jpg' class='img-responsive'  style='max-height:50px;max-width:50px;'  /></td><td>" + result[i].OutDate + "</td><td>" + result[i].InDate + "</td><td>" + status + "</td><td>" + renewCount + "</td></tr>";
+                        s += "<tr><td>" + result[i].BorrowedRecordId + "</td><td>" + result[i].BookName + "</td><td> <img src='/images/juwairen.jpg' class='img-responsive'  style='max-height:50px;max-width:50px;'  /></td><td>" + result[i].OutDate + "</td><td>" + result[i].InDate + "</td><td>" + status + "</td><td>" + renewCount + "</td></tr>";
                     }
                     $("#contents").append(s+"</tbody>");
                 },
@@ -94,7 +93,7 @@
                                @Html.DisplayFor(modelItem => item.BookName)
                             </td>
                             <td>                             
-                                <img src="@Html.DisplayFor(modelItem => item.Book.BookCover)" class="img-responsive"  style="max-height:50px;max-width:50px;"  />
+                                <img src="@Html.DisplayFor(modelItem => item.Book.BookCover.Large)" class="img-responsive"  style="max-height:50px;max-width:50px;"  />
                                 
                             </td>
                             <td>

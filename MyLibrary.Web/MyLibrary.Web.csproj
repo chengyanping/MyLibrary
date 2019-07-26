@@ -182,10 +182,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BookApiController.cs" />
+    <Compile Include="Controllers\BookListApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserCenterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Filter\a.cs" />
     <Compile Include="Filter\GZipCompressAttribute.cs" />
     <Compile Include="Filter\LoginCheckAttribute.cs" />
     <Compile Include="Filter\WapDeviceAttribute.cs" />
@@ -453,6 +453,7 @@
     <Content Include="Views\UserCenter\BorrowList.cshtml" />
     <Content Include="Views\UserCenter\NoReturned.cshtml" />
     <Content Include="Views\UserCenter\Returned.cshtml" />
+    <Content Include="Views\Shared\_UserCenterLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -460,6 +461,7 @@
     <Folder Include="js\" />
     <Folder Include="list-css\" />
     <Folder Include="list-js\" />
+    <Folder Include="mzth_5_flat-admin_v3\" />
     <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>

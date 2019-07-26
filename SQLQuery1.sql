@@ -132,7 +132,7 @@ create table T_BorrowedRecord
 	BookName  varchar(128), --图书名
 	OutDate		datetime , --借阅时间
 	InDate		datetime,	--预期归还时间
-	Status		int, --是否还书
+	Status		int, --是否还书  0表示为归还 1表示已归还
 	IsRenewCount	int , --续借几次
 
 )
@@ -256,16 +256,15 @@ insert into T_BorrowedRecord values(16,1,'活着',GETDATE(),GETDATE(),GETDATE(),1,
 
 select * from T_BorrowedRecord where BookId=2
 
+insert into T_BookList values(1,'21天读书计划',getdate(),'21天读书时让你在21天阅读3本书,并写下读后管',GETDATE());
 
-
---修改
-insert into T_Book values('123456','三国演义','ff','12',GETDATE(),1,'ddd','dfghdfghd','111','52','11111','1',GETDATE(),'/images/photo1.jpg','1')
-insert into T_Book values('123456','水浒传','ff','12',GETDATE(),1,'ddd','dfghdfghd','111','52','11111','1',GETDATE(),'/images/photo2.jpg','1')
 
 ---注意
 1、实体类加入virtual
 
-修改实体类  T_book
+2  添加ComplexType出错，添加GlobalConfig
+
+3
 
 
 

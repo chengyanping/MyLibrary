@@ -19,6 +19,8 @@ namespace MyLibrary.Model.Domain
 
         public int BookListId { get; set; }
 
+        public int BookId { get; set; }
+
       
 
     }

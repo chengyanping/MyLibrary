@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBook.cs" />
+    <Compile Include="IBookList.cs" />
     <Compile Include="IBorrowedRecord.cs" />
     <Compile Include="ICategoryInfo.cs" />
     <Compile Include="IGetPwd.cs" />

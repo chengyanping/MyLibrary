@@ -34,7 +34,7 @@ namespace MyLibrary.Web.Controllers
                 if (Request.Browser.IsMobileDevice)
                 {
                     Response.StatusCode = 301;
-                    Response.RedirectLocation = "http://m.superjokes.cn";
+                    Response.RedirectLocation = "http://www.baidu.com";
                     Response.End();
                 }
 

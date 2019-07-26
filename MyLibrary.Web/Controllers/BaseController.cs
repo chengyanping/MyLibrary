@@ -11,8 +11,8 @@ namespace MyLibrary.Web.Controllers
     public class BaseController:Controller
     {
         protected UserInfoPrincipal user = System.Web.HttpContext.Current.User as UserInfoPrincipal;
-        protected string JokeImgUpload = System.Web.HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["JokeImgUpload"]);
-        protected string JokeImgUploadConfig = ConfigurationManager.AppSettings["JokeImgUpload"];
+        protected string BookImgUpload = System.Web.HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["BookImgUpload"]);
+        protected string BookImgUploadConfig = ConfigurationManager.AppSettings["BookImgUpload"];
         protected string SiteTitle = ConfigurationManager.AppSettings["SiteTitle"];
         protected string SiteKeyWords = ConfigurationManager.AppSettings["SiteKeyWords"];
         protected string SiteDescription = ConfigurationManager.AppSettings["SiteDescription"];

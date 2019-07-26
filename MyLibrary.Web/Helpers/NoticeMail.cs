@@ -13,6 +13,7 @@ namespace MyLibrary.Web.Helpers
 
         public static void SendWelcomeMail(string userName,string email)
         {
+            
             /*
             HttpClient client = new HttpClient();
             HttpPost postMethod = new HttpPost(new Uri("http://sendcloud.sohu.com/webapi/mail.send_template.json"));
@@ -26,7 +27,7 @@ namespace MyLibrary.Web.Helpers
             multipartEntity.AddBody(new StringBody(Encoding.UTF8, "fromname", "超级冷笑话"));
             multipartEntity.AddBody(new StringBody(Encoding.UTF8, "subject", "超级冷笑话注册邮件"));
             CodeScales.Http.Methods.HttpResponse response = client.Execute(postMethod);
-
+            superjokes_cn
             var repCode = response.ResponseCode;
             var repResult = EntityUtils.ToString(response.Entity);
             //LogHelper.Info("reg:" + email + repResult + AppConfig.SendCloudKey);

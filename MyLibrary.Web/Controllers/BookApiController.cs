@@ -18,8 +18,8 @@ namespace MyLibrary.Web.Controllers
         BLL.Book bookBLL = new BLL.Book();    
 
 
-
-        public IEnumerable<T_Book> GetAllProducts()
+        [HttpGet]
+        public IEnumerable<T_Book> GetA()
         {
             List<T_Book> data = bookBLL.GetCategoryBooks(2, 10).ToList();
 
@@ -61,17 +61,26 @@ namespace MyLibrary.Web.Controllers
 
         }
 
-        public IHttpActionResult GetProduct(int id)
+        [HttpPost]
+        public T_Book GetA(int? id)
         {
             IList<T_Book> contacts = bookBLL.GetCategoryBooks(2, 10);
 
 
             T_Book product = contacts.FirstOrDefault((p) => p.BookId == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-            return Ok(product);
+
+            return product;
+        }
+        public IEnumerable<T_Book> Ranking(int? start=0)
+        {
+            List<T_Book> data = bookBLL.GetCategoryBooks(2, 10).ToList();
+            return data;
+        }
+
+        public IEnumerable<T_Book> Recommend(int? uid)
+        {
+            List<T_Book> data = bookBLL.GetCategoryBooks(2, 10).ToList();
+            return data;
         }
     }
 }

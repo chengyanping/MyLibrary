@@ -47,6 +47,13 @@ namespace MyLibrary.DALFactory
 
 
         }
+        public static MyLibrary.IDAL.IBookList CreateBookList()
+        {
+            string className = path + ".BookList";
+            return (MyLibrary.IDAL.IBookList)Assembly.Load(path).CreateInstance(className);
+
+
+        }
 
         public static MyLibrary.IDAL.IBorrowedRecord CreateBorrowedRecord()
         {

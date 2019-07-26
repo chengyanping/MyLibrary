@@ -11,7 +11,7 @@ namespace MyLibrary.Web.Helpers
     {
         public static readonly int IsQiniuUpload;
         public static readonly string QiniuCloudUrl;
-        public static readonly string JokeImgUpload;
+        public static readonly string BookImgUpload;
         public static readonly int IsEnableComment;
         public static readonly string HotCategories;
         public static readonly string SendCloudKey;
@@ -19,7 +19,7 @@ namespace MyLibrary.Web.Helpers
         {
             IsQiniuUpload = Convert.ToInt32(ConfigurationManager.AppSettings["IsQiniuUpload"]);
             QiniuCloudUrl = ConfigurationManager.AppSettings["QiniuCloudUrl"];
-            JokeImgUpload = ConfigurationManager.AppSettings["JokeImgUpload"];
+            BookImgUpload = ConfigurationManager.AppSettings["BookImgUpload"];
             IsEnableComment = Convert.ToInt32(ConfigurationManager.AppSettings["IsEnableComment"]);  
             HotCategories = ConfigurationManager.AppSettings["HotCategories"];
             SendCloudKey = ConfigurationManager.AppSettings["SendCloudSK"];

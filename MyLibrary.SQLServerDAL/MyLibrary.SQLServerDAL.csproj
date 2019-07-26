@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="BookList.cs" />
     <Compile Include="BorrowedRecord.cs" />
     <Compile Include="CategoryInfo.cs" />
     <Compile Include="EFDbContext.cs" />
